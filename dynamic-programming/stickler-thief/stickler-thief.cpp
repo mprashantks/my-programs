@@ -22,7 +22,15 @@ int maxSumRec (int *arr, int i, int size) {
 
 
 int maxSumDP (int *arr, int size) {
+    int incl = arr[0], excl = 0, excl_new;
 
+    for(int i=1; i<size; i++) {
+        excl_new = incl>excl?incl:excl;
+        incl = excl+arr[i];
+        excl = excl_new;
+    }
+
+    return incl>excl?incl:excl;
 }
 
 int main() {
