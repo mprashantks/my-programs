@@ -32,7 +32,7 @@ int maxSumIncSeqDP (int *arr, int arr_size) {
 
   for (int i=1; i<arr_size; i++)
     for (int j=0; j<i; j++) {
-      if (arr[j]<arr[i] && sum_table[j]+arr[i]>arr[i])
+      if (arr[j]<arr[i] && sum_table[j]+arr[i]>sum_table[i])
         sum_table[i] = sum_table[j]+arr[i];
     }
 
